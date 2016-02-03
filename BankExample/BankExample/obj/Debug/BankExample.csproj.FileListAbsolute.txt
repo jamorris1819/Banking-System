@@ -1,0 +1,12 @@
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\bin\Debug\BankExample.exe.config
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\bin\Debug\BankExample.exe
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\bin\Debug\BankExample.pdb
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\bin\Debug\BankingSystem.dll
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\bin\Debug\JEncryption.dll
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\bin\Debug\BankingSystem.pdb
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\obj\Debug\BankExample.csprojResolveAssemblyReference.cache
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\obj\Debug\BankExample.Main.resources
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\obj\Debug\BankExample.Properties.Resources.resources
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\obj\Debug\BankExample.csproj.GenerateResource.Cache
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\obj\Debug\BankExample.exe
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\obj\Debug\BankExample.pdb
