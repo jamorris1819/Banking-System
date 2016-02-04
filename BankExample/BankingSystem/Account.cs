@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BankingSystem
@@ -42,6 +43,11 @@ namespace BankingSystem
             get { return phoneNumber; }
         }
 
+        public decimal Balance
+        {
+            get { return balance; }
+        }
+
         public Account(string name, string password, string dob, string address, string phoneNumber)
         {
             id = Bank.GetNewAccountID();
@@ -59,18 +65,34 @@ namespace BankingSystem
             log.Add(message);
         }
 
-        public BankResult PayInFunds(decimal amount, long code)
+        private bool CheckAuthorised(DateTime code)
         {
-            long difference = DateTime.Now.Ticks - code;
-            // We get 25000-3000 here, so to be safe we'll say 40000
-            if (difference >= 40000)
-            {
+            Thread.Sleep(10);
+            TimeSpan difference = DateTime.Now - code;
+            return difference.Milliseconds < 500;
+        }
+
+        public BankResult PayInFunds(decimal amount, DateTime code)
+        {
+            if (!CheckAuthorised(code))
                 return BankResult.UnauthorisedAttempt;
-            }
             if (amount < 0 || amount > Bank.HardDepositLimit)
                 return BankResult.TransactionInvalid;
-            Log(Bank.Encrypt("Transaction successfully cleared"));
+            Log(Bank.Encrypt("Deposit successfully cleared"));
             balance += amount;
+            return BankResult.TransactionComplete;
+        }
+
+        public BankResult WithdrawFunds(decimal amount, DateTime code)
+        {
+            if (!CheckAuthorised(code))
+                return BankResult.UnauthorisedAttempt;
+            if (amount < 0 || amount > Bank.HardWithdrawLimit)
+            {
+                return BankResult.TransactionInvalid;
+            }
+            Log(Bank.Encrypt("Withdrawal successfully cleared"));
+            balance -= amount;
             return BankResult.TransactionComplete;
         }
     }

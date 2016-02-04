@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BankingSystem
 {
-    public enum TellerPermissions { CreateAccount, DeleteAccount, DepositMoney, RemoveMoney, ViewDetails, EditDetails };
-    public enum TellerResult { Success, NoSession, OverLimit, InvalidInput, NoPermissions };
+    public enum TellerPermissions { CreateAccount, DeleteAccount, DepositMoney, RemoveMoney, EditDetails };
+    public enum TellerResult { Success, NoSession, OverLimit, InvalidInput, NoPermissions, Unauthorised };
     public class Teller
     {
         private int id;
@@ -15,6 +15,7 @@ namespace BankingSystem
         private string password;
         private List<string> log;
         private List<TellerPermissions> permissions;
+        private Account currentAccount;
 
         public int ID
         {
@@ -29,6 +30,11 @@ namespace BankingSystem
         public List<TellerPermissions> Permissions
         {
             get { return permissions; }
+        }
+
+        public Account CurrentAccount
+        {
+            get { return currentAccount; }
         }
 
         public Teller(int id, string name, string password, List<TellerPermissions> permissions)
@@ -50,9 +56,22 @@ namespace BankingSystem
             return Bank.FindSession(this).Account;
         }
 
+        /// <summary>
+        /// Create a session
+        /// </summary>
+        /// <param name="account">The account to create a session with</param>
         public void CreateSession(Account account)
         {
             Bank.CreateSession(this, account);
+        }
+
+        /// <summary>
+        /// Create a session
+        /// </summary>
+        /// <param name="id">The account's ID</param>
+        public void CreateSession(int id)
+        {
+            Bank.CreateSession(this, id);
         }
 
         public TellerResult CreateAccount(string name, string password, string dob, string address, string phoneNumber)
@@ -78,9 +97,31 @@ namespace BankingSystem
                 return TellerResult.InvalidInput;
             if (!permissions.Contains(TellerPermissions.DepositMoney))
                 return TellerResult.NoPermissions;
-            Log(Bank.Encrypt("Started transaction for £" + amount + " into account ID " + account.ID));
-            account.Log(Bank.Encrypt("Transation started for £" + amount + " deposited into account by teller ID " + ID));
+            Log(Bank.Encrypt("Started deposit for £" + amount + " into account ID " + account.ID));
+            account.Log(Bank.Encrypt("Deposit started for £" + amount + " into account by teller ID " + ID));
             BankResult result = Bank.PayAccount(account, amount);
+            if (result == BankResult.TransactionComplete)
+                return TellerResult.Success;
+            else if (result == BankResult.UnauthorisedAttempt)
+                return TellerResult.Unauthorised;
+            else
+                return TellerResult.InvalidInput;
+        }
+
+        public TellerResult WithdrawFunds(decimal amount)
+        {
+            Account account = GetSession();
+            if (account == null)
+                return TellerResult.NoSession;
+            if (amount > Bank.HardWithdrawLimit)
+                return TellerResult.OverLimit;
+            if (amount <= 0)
+                return TellerResult.InvalidInput;
+            if (!permissions.Contains(TellerPermissions.RemoveMoney))
+                return TellerResult.NoPermissions;
+            Log(Bank.Encrypt("Started withdrawal for £" + amount + " for account ID " + account.ID));
+            account.Log(Bank.Encrypt("Withdrawal started for £" + amount + " by teller ID " + ID));
+            BankResult result = Bank.WithdrawFunds(account, amount);
             if (result == BankResult.TransactionComplete)
                 return TellerResult.Success;
             else
@@ -91,5 +132,6 @@ namespace BankingSystem
         {
             log.Add(message);
         }
+
     }
 }

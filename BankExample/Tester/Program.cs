@@ -12,12 +12,27 @@ namespace Tester
     {
         static void Main(string[] args)
         {
-            Bank.Initialise("secret key");
+            string passKey = "fdghfhgf";
+            Bank.Initialise(passKey);
+
             Teller teller = Bank.CreateTeller("Jacob", "temp");
             TellerResult result = teller.CreateAccount("Emily", "pass", "", "", "");
-            teller.CreateSession(Bank.accounts[0]);
-            result = teller.PayInFunds(200);
-            Console.WriteLine(result);
+            if (result == TellerResult.Success)
+            {
+                Console.WriteLine("Account was created");
+                teller.CreateSession(0);
+                Console.WriteLine(Bank.FindAccount(0).Balance);
+                result = teller.PayInFunds(100);
+                Console.WriteLine(result);
+                Console.WriteLine(Bank.FindAccount(0).Balance);
+                result = teller.WithdrawFunds(60);
+                Console.WriteLine(result);
+                Console.WriteLine(Bank.FindAccount(0).Balance);
+            }
+            else
+            {
+                Console.WriteLine("Error creating account");
+            }
             Console.ReadKey();
         }
     }

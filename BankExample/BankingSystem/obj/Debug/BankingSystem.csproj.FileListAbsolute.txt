@@ -4,3 +4,8 @@ C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankingSystem\bin\Deb
 C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankingSystem\bin\Debug\JEncryption.dll
 C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankingSystem\obj\Debug\BankingSystem.dll
 C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankingSystem\obj\Debug\BankingSystem.pdb
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankingSystem\bin\Debug\BankingSystem.dll
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankingSystem\bin\Debug\BankingSystem.pdb
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankingSystem\bin\Debug\JEncryption.dll
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankingSystem\obj\Debug\BankingSystem.dll
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankingSystem\obj\Debug\BankingSystem.pdb

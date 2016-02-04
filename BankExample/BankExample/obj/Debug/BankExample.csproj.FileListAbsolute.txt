@@ -10,3 +10,15 @@ C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\obj\Debug
 C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\obj\Debug\BankExample.csproj.GenerateResource.Cache
 C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\obj\Debug\BankExample.exe
 C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\obj\Debug\BankExample.pdb
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankExample\bin\Debug\BankExample.exe.config
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankExample\obj\Debug\BankExample.exe
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankExample\obj\Debug\BankExample.pdb
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankExample\bin\Debug\BankExample.exe
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankExample\bin\Debug\BankExample.pdb
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankExample\bin\Debug\BankingSystem.dll
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankExample\bin\Debug\JEncryption.dll
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankExample\bin\Debug\BankingSystem.pdb
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankExample\obj\Debug\BankExample.csprojResolveAssemblyReference.cache
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankExample\obj\Debug\BankExample.Main.resources
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankExample\obj\Debug\BankExample.Properties.Resources.resources
+\\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\BankExample\obj\Debug\BankExample.csproj.GenerateResource.Cache

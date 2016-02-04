@@ -11,8 +11,8 @@ namespace BankingSystem
     public enum BankResult { AccountCreated, TellerInvalid, AccountExists, UnauthorisedAttempt, TransactionInvalid, TransactionComplete };
     public static class Bank
     {
-        private static List<Teller> tellers;
-        public static List<Account> accounts;
+        private static Dictionary<int, Teller> tellers;
+        private static Dictionary<int, Account> accounts;
         private static List<Session> sessions;
         private static List<string> log;
 
@@ -46,8 +46,8 @@ namespace BankingSystem
 
         public static void Initialise(string key)
         {
-            tellers = new List<Teller>();
-            accounts = new List<Account>();
+            tellers = new Dictionary<int, Teller>();
+            accounts = new Dictionary<int, Account>();
             sessions = new List<Session>();
             log = new List<string>();
             encryptKey = key;
@@ -56,8 +56,8 @@ namespace BankingSystem
 
         public static Teller CreateTeller(string name, string password)
         {
-            Teller teller = new Teller(tellers.Count, name, password, new List<TellerPermissions> { TellerPermissions.CreateAccount, TellerPermissions.DepositMoney, TellerPermissions.ViewDetails, TellerPermissions.EditDetails });
-            tellers.Add(teller);
+            Teller teller = new Teller(tellers.Count, name, password, new List<TellerPermissions> { TellerPermissions.CreateAccount, TellerPermissions.DepositMoney, TellerPermissions.RemoveMoney, TellerPermissions.EditDetails });
+            tellers.Add(teller.ID, teller);
             Log("Teller with ID " + teller.ID + " created");
             return teller;
         }
@@ -92,29 +92,65 @@ namespace BankingSystem
             return accounts.Count;
         }
 
+        /// <summary>
+        /// Creates a session between a teller and an account
+        /// </summary>
+        /// <param name="teller">Teller</param>
+        /// <param name="account">Account</param>
         public static void CreateSession(Teller teller, Account account)
         {
             Session session = new Session(teller, account);
             sessions.Add(session);
         }
 
+        /// <summary>
+        /// Creates a session between a teller and an account
+        /// </summary>
+        /// <param name="teller">Teller</param>
+        /// <param name="account">Account</param>
+        public static void CreateSession(Teller teller, int id)
+        {
+            CreateSession(teller, FindAccount(id));
+        }
+        
+        /// <summary>
+        /// Finds an account with the specified ID
+        /// </summary>
+        /// <param name="id">ID of sought account</param>
+        /// <returns></returns>
+        public static Account FindAccount(int id)
+        {
+            return accounts[id];
+        }
+
+        /// <summary>
+        /// Creates a new account without using a session
+        /// </summary>
+        /// <param name="teller">Teller</param>
+        /// <param name="account">Account</param>
+        /// <returns></returns>
         public static BankResult CreateNewAccount(Teller teller, Account account)
         {
-            if (!tellers.Contains(teller))
+            if (!tellers.ContainsKey(teller.ID))
                 return BankResult.TellerInvalid;
-            if (accounts.Contains(account))
+            if (accounts.ContainsValue(account))
                 return BankResult.AccountExists;
             account.Log(Encrypt("Account created by " + teller.Name + " (" + teller.ID + ")"));
             teller.Log(Encrypt("Created account for ID " + account.ID));
             Log("Teller ID " + teller.ID + " created an account for account ID " + account.ID);
-            accounts.Add(account);
+            accounts.Add(account.ID, account);
             return BankResult.AccountCreated;
         }
 
         public static BankResult PayAccount(Account account, decimal amount)
         {
             // This is a very important command, so we add our own security. We send our current tick count, and the account will verify this was recent, and if it was, it will pay in.
-            return account.PayInFunds(amount, DateTime.Now.Ticks);
+            return account.PayInFunds(amount, DateTime.Now);
+        }
+
+        public static BankResult WithdrawFunds(Account account, decimal amount)
+        {
+            return account.WithdrawFunds(amount, DateTime.Now);
         }
     }
 }
