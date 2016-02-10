@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankingSystem
 {
-    public enum TellerPermissions { CreateAccount, DeleteAccount, DepositMoney, RemoveMoney, EditDetails };
+    public enum TellerPermissions { CreateAccount, DeleteAccount, DepositMoney, WithdrawMoney, EditDetails };
     public enum TellerResult { Success, NoSession, OverLimit, InvalidInput, NoPermissions, Unauthorised };
     public class Teller
     {
@@ -117,7 +117,7 @@ namespace BankingSystem
                 return TellerResult.OverLimit;
             if (amount <= 0)
                 return TellerResult.InvalidInput;
-            if (!permissions.Contains(TellerPermissions.RemoveMoney))
+            if (!permissions.Contains(TellerPermissions.WithdrawMoney))
                 return TellerResult.NoPermissions;
             Log(Bank.Encrypt("Started withdrawal for £" + amount + " for account ID " + account.ID));
             account.Log(Bank.Encrypt("Withdrawal started for £" + amount + " by teller ID " + ID));

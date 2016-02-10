@@ -1,0 +1,61 @@
+﻿<Window x:Class="BankXAML.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Banking System" Height="362.5" Width="364">
+    <Grid>
+        <TabControl TabStripPlacement="Top" Margin="0,0,0,0">
+            <TabItem Header="Administration">
+                <TabControl TabStripPlacement="Left" Margin="0,0,0,0">
+                    <TabItem Header="Create Teller">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Name:" Margin="5,5,5,5"></TextBlock>
+                                <TextBox Name="tbCreateTellerName" Width="200" Margin="5,5,5,5"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Password:" Margin="5,5,5,5"></TextBlock>
+                                <PasswordBox Name="tbCreateTellerPassword" Width="181" Margin="5,5,5,5" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Permissions" Margin="5,5,5,5"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Create accounts" Margin="5,5,5,5"></TextBlock>
+                                <CheckBox Margin="5,5,5,5" Name="cbCreateAccounts"></CheckBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Delete accounts" Margin="5,5,5,5"></TextBlock>
+                                <CheckBox Margin="5,5,5,5" Name="cbDeleteAccounts"></CheckBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Deposit money" Margin="5,5,5,5"></TextBlock>
+                                <CheckBox Margin="5,5,5,5" Name="cbDepositMoney"></CheckBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Withdraw money" Margin="5,5,5,5"></TextBlock>
+                                <CheckBox Margin="5,5,5,5" Name="cbWithdrawMoney"></CheckBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Edit details" Margin="5,5,5,5"></TextBlock>
+                                <CheckBox Margin="5,5,5,5" Name="cbEditDetails"></CheckBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Create Teller Account" Padding="5,5,5,5" Margin="5,5,5,5" Click="CreateTellerButton_Click"></Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Name="lbCreateTellerErrors"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            <TabItem Header="Teller">
+                <TextBlock><Run Text="Goodbye"/></TextBlock>
+            </TabItem>
+            <TabItem Header="Customer">
+
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

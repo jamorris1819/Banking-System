@@ -54,9 +54,9 @@ namespace BankingSystem
             Encryption.Initialise(key);
         }
 
-        public static Teller CreateTeller(string name, string password)
+        public static Teller CreateTeller(string name, string password, List<TellerPermissions> permissions)
         {
-            Teller teller = new Teller(tellers.Count, name, password, new List<TellerPermissions> { TellerPermissions.CreateAccount, TellerPermissions.DepositMoney, TellerPermissions.RemoveMoney, TellerPermissions.EditDetails });
+            Teller teller = new Teller(tellers.Count, name, password, permissions);
             tellers.Add(teller.ID, teller);
             Log("Teller with ID " + teller.ID + " created");
             return teller;
@@ -90,6 +90,15 @@ namespace BankingSystem
         public static int GetNewAccountID()
         {
             return accounts.Count;
+        }
+
+        /// <summary>
+        /// Returns a unique ID for a teller account
+        /// </summary>
+        /// <returns></returns>
+        public static int GetNewTellerID()
+        {
+            return tellers.Count;
         }
 
         /// <summary>

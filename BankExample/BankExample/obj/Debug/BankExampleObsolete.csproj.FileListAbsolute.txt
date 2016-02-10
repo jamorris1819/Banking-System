@@ -1,0 +1,3 @@
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\bin\Debug\BankExample.exe.config
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\obj\Debug\BankExample.exe
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankExample\obj\Debug\BankExample.pdb

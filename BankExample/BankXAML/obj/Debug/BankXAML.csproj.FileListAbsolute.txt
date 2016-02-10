@@ -1,0 +1,16 @@
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\bin\Debug\BankXAML.exe.config
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\bin\Debug\BankXAML.exe
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\bin\Debug\BankXAML.pdb
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\obj\Debug\BankXAML.csprojResolveAssemblyReference.cache
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\obj\Debug\MainWindow.baml
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\obj\Debug\MainWindow.g.cs
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\obj\Debug\App.g.cs
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\obj\Debug\BankXAML_MarkupCompile.cache
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\obj\Debug\BankXAML.g.resources
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\obj\Debug\BankXAML.Properties.Resources.resources
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\obj\Debug\BankXAML.csproj.GenerateResource.Cache
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\obj\Debug\BankXAML.exe
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\obj\Debug\BankXAML.pdb
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\bin\Debug\BankingSystem.dll
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\bin\Debug\JEncryption.dll
+C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\BankXAML\bin\Debug\BankingSystem.pdb
