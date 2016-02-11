@@ -26,7 +26,15 @@ namespace BankXAML
         {
             InitializeComponent();
             Bank.Initialise("super secret password");
+            Bank.LogChanged += Bank_LogChanged;
         }
+
+        #region Event handler
+        void Bank_LogChanged(object sender, EventArgs e)
+        {
+            lbBankLog.Text += Bank.Decrypt(Bank.GetLastLog());
+        }
+        #endregion
 
         private void CreateTellerButton_Click(object sender, RoutedEventArgs e)
         {
@@ -52,6 +60,15 @@ namespace BankXAML
                 if (cbEditDetails.IsChecked.Value)
                     permissions.Add(TellerPermissions.EditDetails);
                 Teller teller = Bank.CreateTeller(name, password, permissions);
+                
+                // Reset values to default
+                tbCreateTellerName.Text = "";
+                tbCreateTellerPassword.Password = "";
+                cbWithdrawMoney.IsChecked = false;
+                cbDepositMoney.IsChecked = false;
+                cbCreateAccounts.IsChecked = false;
+                cbDeleteAccounts.IsChecked = false;
+                cbEditDetails.IsChecked = false;
             }
             lbCreateTellerErrors.Text = errors;
         }

@@ -8,9 +8,12 @@ using JEncryption;
 
 namespace BankingSystem
 {
+    public delegate void ChangedEventHandler(object sender, EventArgs e);
     public enum BankResult { AccountCreated, TellerInvalid, AccountExists, UnauthorisedAttempt, TransactionInvalid, TransactionComplete };
     public static class Bank
     {
+        public static event ChangedEventHandler LogChanged;
+
         private static Dictionary<int, Teller> tellers;
         private static Dictionary<int, Account> accounts;
         private static List<Session> sessions;
@@ -44,6 +47,12 @@ namespace BankingSystem
         }
         #endregion
 
+        private static void EventLogChanged(EventArgs e)
+        {
+            if (LogChanged != null)
+                LogChanged(null, e);
+        }
+
         public static void Initialise(string key)
         {
             tellers = new Dictionary<int, Teller>();
@@ -58,7 +67,7 @@ namespace BankingSystem
         {
             Teller teller = new Teller(tellers.Count, name, password, permissions);
             tellers.Add(teller.ID, teller);
-            Log("Teller with ID " + teller.ID + " created");
+            Log("Teller (" + teller.Name + ") with ID " + teller.ID + " created");
             return teller;
         }
 
@@ -81,6 +90,12 @@ namespace BankingSystem
         public static void Log(string message)
         {
             log.Add(Encrypt(message));
+            EventLogChanged(EventArgs.Empty);
+        }
+
+        public static string GetLastLog()
+        {
+            return log[log.Count - 1];
         }
 
         /// <summary>

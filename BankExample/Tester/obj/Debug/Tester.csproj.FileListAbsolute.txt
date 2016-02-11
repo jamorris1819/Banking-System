@@ -16,3 +16,7 @@ C:\Users\Jacob\Documents\GitHub\Banking-System\BankExample\Tester\obj\Debug\Test
 \\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\Tester\bin\Debug\JEncryption.dll
 \\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\Tester\bin\Debug\BankingSystem.pdb
 \\data.adir.hull.ac.uk\home5\505\505183\Banking-System-master\Banking-System-master\BankExample\Tester\obj\Debug\Tester.csprojResolveAssemblyReference.cache
+\\data.adir.hull.ac.uk\home5\505\505183\Desktop\BankExample\Tester\obj\Debug\Tester.csprojResolveAssemblyReference.cache
+\\data.adir.hull.ac.uk\home5\505\505183\Desktop\BankExample\Tester\obj\Debug\Tester.exe
+\\data.adir.hull.ac.uk\home5\505\505183\Desktop\BankExample\Tester\obj\Debug\Tester.pdb
+F:\BankExample\Tester\bin\Debug\Tester.exe.config
